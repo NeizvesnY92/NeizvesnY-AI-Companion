@@ -1,5 +1,6 @@
-# NeizvesnY AI Companion v0.5 - offset follow target
-# Experimental iOS logic. The companion follows a point 6 world units to the right of the player.
+# NeizvesnY AI Companion v0.6 - follow with hysteresis
+# Experimental: use two distance thresholds to prevent oscillation.
+# If player leaves uradar range, target acquisition may fail.
 ubind @flare
 uradar player ally any distance 0 1 player
 jump 0 equal player null
@@ -10,7 +11,9 @@ set ty py
 sensor ux @unit @x
 sensor uy @unit @y
 op dst dist ux uy tx ty
-jump 12 lessThan dist 3
+jump 13 greaterThan dist 10
+jump 15 lessThan dist 4
+end
 ucontrol move tx ty 0 0 0
 end
 ucontrol stop 0 0 0 0 0
