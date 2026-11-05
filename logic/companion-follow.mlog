@@ -1,0 +1,20 @@
+# Offline companion v0.1 - experimental Mindustry logic
+# Bind one allied flare, follow the player, engage nearby enemies.
+ubind @flare
+sensor controlled @unit @controlled
+jump 0 equal @unit null
+radar player any any distance @unit 1 target
+jump 10 equal target null
+sensor px target @x
+sensor py target @y
+ucontrol approach px py 5 0 0
+jump 14 always 0 0
+sensor cx @unit @x
+sensor cy @unit @y
+ucontrol idle 0 0 0 0 0
+uradar enemy any any distance 0 1 enemy
+jump 19 equal enemy null
+sensor ex enemy @x
+sensor ey enemy @y
+ucontrol target ex ey 1 0 0
+end
