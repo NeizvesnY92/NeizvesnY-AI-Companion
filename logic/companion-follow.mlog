@@ -1,5 +1,5 @@
-# NeizvesnY AI Companion v0.3 - follow with dead zone
-# Experimental iOS Mindustry Logic: paste into processor editor.
+# NeizvesnY AI Companion v0.4 - move + stop with hysteresis
+# Experimental; test on iOS. Unit logic uses world-unit distances.
 ubind @flare
 uradar player ally any distance 0 1 player
 jump 0 equal player null
@@ -8,8 +8,8 @@ sensor py player @y
 sensor ux @unit @x
 sensor uy @unit @y
 op dst dist ux uy px py
-jump 11 lessThan dist 8
-ucontrol approach px py 6 0 0
+jump 11 lessThan dist 12
+ucontrol move px py 0 0 0
 end
 ucontrol stop 0 0 0 0 0
 end
