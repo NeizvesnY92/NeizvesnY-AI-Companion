@@ -1,0 +1,18 @@
+# Experimental factory for the custom Mk.I drone.
+# Sandbox-friendly: no construction or production resources.
+type: UnitFactory
+name: Companion Factory
+description: Produces the experimental NeizvesnY Companion Mk.I drone.
+category: units
+size: 3
+health: 900
+buildVisibility: shown
+requirements: []
+consumes: {}
+plans: [
+  {
+    unit: neizvesny-companion
+    time: 60
+    requirements: []
+  }
+]
