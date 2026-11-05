@@ -23,3 +23,7 @@ The `.mlog` files are references: importing the mod does **not** automatically i
 Mindustry Logic's `uradar` has a limited search radius; a faster custom unit may reduce lag but does not provide unlimited player tracking. This is a logic-controlled allied unit, not a second multiplayer player or conversational AI.
 
 Older Flare prototype: `logic/companion-follow.mlog`.
+
+## Experimental Companion Factory
+
+The block definition `content/blocks/companion-factory.hjson` adds a 3x3 UnitFactory named **Companion Factory** under the Units category. It is intended to cost no resources and produce `neizvesny-companion` in 60 ticks (about one second at 60 TPS). This configuration has not yet been verified in-game. Re-import/update the mod and restart Mindustry before testing. The factory and unit currently have no custom PNG sprites, so missing-texture placeholders may appear.
