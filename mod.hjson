@@ -2,5 +2,5 @@ name: neizvesny-ai-companion
 displayName: NeizvesnY AI Companion
 author: NeizvesnY
 description: Offline experimental custom combat drone and Mindustry Logic companion for iOS.
-version: 0.2
+version: 0.3
 minGameVersion: 146
