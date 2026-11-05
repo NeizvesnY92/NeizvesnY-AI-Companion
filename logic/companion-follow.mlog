@@ -1,15 +1,15 @@
-# NeizvesnY AI Companion v0.2 - offline experimental follow + defend
-# Paste these instructions into a logic processor.
-# Requires an allied flare unit; Mindustry Logic syntax must be tested on iOS.
+# NeizvesnY AI Companion v0.3 - follow with dead zone
+# Experimental iOS Mindustry Logic: paste into processor editor.
 ubind @flare
 uradar player ally any distance 0 1 player
 jump 0 equal player null
 sensor px player @x
 sensor py player @y
+sensor ux @unit @x
+sensor uy @unit @y
+op dst dist ux uy px py
+jump 11 lessThan dist 8
 ucontrol approach px py 6 0 0
-uradar enemy any any distance 0 1 enemy
-jump 10 equal enemy null
-sensor ex enemy @x
-sensor ey enemy @y
-ucontrol target ex ey 1 0 0
+end
+ucontrol stop 0 0 0 0 0
 end
