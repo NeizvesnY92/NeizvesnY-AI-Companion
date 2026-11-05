@@ -1,19 +1,20 @@
-# NeizvesnY AI Companion v0.6 - follow with hysteresis
-# Experimental: use two distance thresholds to prevent oscillation.
-# If player leaves uradar range, target acquisition may fail.
+# NeizvesnY AI Companion v0.7 - last known player position
+# Experimental offline logic for Mindustry iOS.
+# Retains last target when player leaves unit radar range.
+# When the last known point is reached, stops until player is seen again.
 ubind @flare
 uradar player ally any distance 0 1 player
-jump 0 equal player null
+jump 7 equal player null
 sensor px player @x
 sensor py player @y
 op add tx px 6
 set ty py
+set known 1
+jump 0 equal known 0
 sensor ux @unit @x
 sensor uy @unit @y
 op dst dist ux uy tx ty
-jump 13 greaterThan dist 10
 jump 15 lessThan dist 4
-end
 ucontrol move tx ty 0 0 0
 end
 ucontrol stop 0 0 0 0 0
