@@ -1,7 +1,8 @@
-# NeizvesnY AI Companion - experimental offline processor logic
-# Requires an allied @flare and a nearby allied player.
+# NeizvesnY AI Companion v0.2 - offline experimental follow + defend
+# Paste these instructions into a logic processor.
+# Requires an allied flare unit; Mindustry Logic syntax must be tested on iOS.
 ubind @flare
-radar player ally any distance @unit 1 player
+uradar player ally any distance 0 1 player
 jump 0 equal player null
 sensor px player @x
 sensor py player @y
