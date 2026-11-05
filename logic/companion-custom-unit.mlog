@@ -1,0 +1,19 @@
+# v0.8: experimental custom unit follow logic
+# This file is NOT automatically loaded into a processor.
+ubind @neizvesny-companion
+uradar player ally any distance 0 1 player
+jump 7 equal player null
+sensor px player @x
+sensor py player @y
+op add tx px 24
+set ty py
+set known 1
+jump 0 equal known 0
+sensor ux @unit @x
+sensor uy @unit @y
+op dst dist ux uy tx ty
+jump 15 lessThan dist 12
+ucontrol move tx ty 0 0 0
+end
+ucontrol stop 0 0 0 0 0
+end
