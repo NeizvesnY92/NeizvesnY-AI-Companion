@@ -1,15 +1,17 @@
-# NeizvesnY AI Companion v0.4 - move + stop with hysteresis
-# Experimental; test on iOS. Unit logic uses world-unit distances.
+# NeizvesnY AI Companion v0.5 - offset follow target
+# Experimental iOS logic. The companion follows a point 6 world units to the right of the player.
 ubind @flare
 uradar player ally any distance 0 1 player
 jump 0 equal player null
 sensor px player @x
 sensor py player @y
+op add tx px 6
+set ty py
 sensor ux @unit @x
 sensor uy @unit @y
-op dst dist ux uy px py
-jump 11 lessThan dist 12
-ucontrol move px py 0 0 0
+op dst dist ux uy tx ty
+jump 12 lessThan dist 3
+ucontrol move tx ty 0 0 0
 end
 ucontrol stop 0 0 0 0 0
 end
