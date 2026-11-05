@@ -1,20 +1,25 @@
 # NeizvesnY AI Companion
 
-Standalone offline companion prototype for Mindustry on iPhone.
+Offline Mindustry iOS companion experiment (HJSON + built-in logic; no Java or server).
 
-## Current status
-Experimental v0.1, **not yet tested in game**. Mindustry iOS does not support ordinary Java mods. This project uses built-in Mindustry Logic to command an allied unit; it is not a second multiplayer player or a conversational AI.
+## Mk.I experimental custom combat drone
 
-## Try the prototype
-1. Import this repository as a mod if your Mindustry iOS version permits HJSON mod imports.
-2. In a sandbox world, place a **micro processor** and create an allied **flare** unit.
-3. Open `logic/companion-follow.mlog` in this repository and enter its instructions into the processor's logic editor. The .mlog file is reference logic, **not automatically installed into a processor** by the mod.
-4. Stay near the flare and observe its behavior. The experimental script tries to approach the allied player and fire at enemies.
+- Unit definition: `content/units/neizvesny-companion.hjson`
+- Logic: `logic/companion-custom-unit.mlog`
+- Fast flying unit with a basic weapon, intended for follow/escort behavior.
+- **Not yet verified in-game.** The custom sprite is not yet included, so the unit may appear with a missing-texture placeholder. Content loading and processor binding need testing.
 
-## Next steps
-- Verify syntax and behavior against the installed Mindustry version.
-- Add a convenient in-game processor schematic with embedded code.
-- Add selectable modes (follow, defend, repair).
-- Explore mining and building constraints of logic-controlled units.
+## Testing on iPhone
 
-No cloud server or internet is required during gameplay.
+1. In Mindustry, remove and re-import this GitHub mod (or update it), then restart the game.
+2. Open a sandbox map. Check whether the unit `neizvesny-companion` appears in the unit list and can be spawned.
+3. Place a micro processor and paste the code from `logic/companion-custom-unit.mlog`.
+4. Check whether the drone moves and follows. If the unit or script does not load, report the exact error.
+
+The `.mlog` files are references: importing the mod does **not** automatically install the script in processors.
+
+## Known limits
+
+Mindustry Logic's `uradar` has a limited search radius; a faster custom unit may reduce lag but does not provide unlimited player tracking. This is a logic-controlled allied unit, not a second multiplayer player or conversational AI.
+
+Older Flare prototype: `logic/companion-follow.mlog`.
